@@ -5,10 +5,13 @@ const Invoices = () => {
   let invoices = getInvoices();
   let [searchParams, setSearchParams] = useSearchParams();
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ 
+      display: "flex" ,
+     marginLeft:"40px"
+      }}>
       <nav
         style={{
-          borderRight: "solid 1px",
+          // borderRight: "solid 1px",
           padding: "1rem",
         }}
       >

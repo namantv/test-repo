@@ -2,6 +2,7 @@ import { createStore } from 'redux'
 
 const myReducer =(state={counter:0},action)=>{
   if (action.type==="inc") {
+    console.log(action.payload)
     return{
       counter:state.counter+1
     }
@@ -17,3 +18,4 @@ const myReducer =(state={counter:0},action)=>{
 
 }
 const store = createStore(myReducer);
+export default store
