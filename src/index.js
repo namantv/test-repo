@@ -7,40 +7,43 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Invoices from "./routes/invoices";
 import Expencess from "./routes/expencess";
 import Invoice from "./routes/invoice";
-import { Provider } from 'react-redux'
-import store from '../src/store/store'
+import { Provider } from "react-redux";
+import store from "../src/store/store";
 
 ReactDOM.render(
-  <Provider store={store}>
-  <BrowserRouter>
-    <React.StrictMode>
-      <Routes>
-        <Route path="/" element={<Layouts />}>
-          <Route path="invoices" element={<Invoices />}>
-            <Route path=":invoiceId" element={<Invoice />} />
-            <Route
-              index
-              element={
-                <main style={{ padding: "1rem",backgroundColor:"antiquewhite" }}>
-                  <p>Select an invoice</p>
-                </main>
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <main style={{ padding: "1rem" }}>
-                  <p>There`s nothing here!</p>
-                </main>
-              }
-            />
+  //
+  <React.StrictMode>
+    
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Provider store={store}><Layouts /></Provider>}>
+            <Route path="invoices" element={<Invoices />}>
+              <Route path=":invoiceId" element={<Invoice />} />
+              <Route
+                index
+                element={
+                  <main
+                    style={{ padding: "1rem", backgroundColor: "antiquewhite" }}
+                  >
+                    <p>Select an invoice</p>
+                  </main>
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <main style={{ padding: "1rem" }}>
+                    <p>There`s nothing here!</p>
+                  </main>
+                }
+              />
+            </Route>
+            <Route path="expenses" element={<Expencess />} />
           </Route>
-          <Route path="expenses" element={<Expencess />} />
-        </Route>
-      </Routes>
-    </React.StrictMode>
-  </BrowserRouter>
-  </Provider>,
+        </Routes>
+      </BrowserRouter>
+    {/* </Provider> */}
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
-
 const Layouts = () => {
   
   return (
+
     <div style={{ display: "flex" }}>
       <h1>Book keeper</h1>
       <nav
